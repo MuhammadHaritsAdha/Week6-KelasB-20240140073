@@ -41,3 +41,46 @@ loadProductsBtn.addEventListener('click', async () => {
         loadingMessage.classList.add('hidden');
     }
 });
+
+
+// 2. FORM - DOM & EVENT HANDLING
+const registrationForm = document.getElementById('registrationForm');
+const fullNameInput = document.getElementById('fullName');
+const emailInput = document.getElementById('email');
+const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+const formFeedback = document.getElementById('formFeedback');
+
+registrationForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let isValid = true;
+    const nameVal = fullNameInput.value.trim();
+    const emailVal = emailInput.value.trim();
+
+    // Validasi Nama
+    if (nameVal.length < 3) {
+        nameError.classList.remove('hidden');
+        isValid = false;
+    } else {
+        nameError.classList.add('hidden');
+    }
+
+    // Validasi Email Sederhana
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailVal)) {
+        emailError.classList.remove('hidden');
+        isValid = false;
+    } else {
+        emailError.classList.add('hidden');
+    }
+
+    // Hasil Feedback
+    if (isValid) {
+        formFeedback.textContent = `[SUCCESS] "${nameVal}" berhasil diverifikasi dan terdaftar ke sistem.`;
+        formFeedback.classList.remove('hidden');
+        registrationForm.reset();
+    } else {
+        formFeedback.classList.add('hidden');
+    }
+});
