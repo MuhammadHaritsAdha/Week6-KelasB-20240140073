@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harits - PAW Week 6 Assignment</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="glow-bg"></div>
+
+    <header class="header">
+        <div class="logo-tag">PAW // 2026</div>
+        <h1>Week 6: DOM & Fetch API</h1>
+        <p>Interactive Product Catalog & Event Registration</p>
+    </header>
+
+    <main class="wrapper">
+        <!-- Bagian 1: Fetch API Produk -->
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Live Product Feed (DummyJSON)</h2>
+                <button id="loadProductsBtn" class="btn-primary"><span>Fetch Data</span></button>
+            </div>
+            
+            <div id="loadingMessage" class="loader hidden">
+                <div class="spinner"></div>
+                <p>Mengambil data dari server...</p>
+            </div>
+            <div id="errorMessage" class="hidden error-alert"></div>
+            
+            <div id="productContainer" class="product-grid"></div>
+        </section>
+
+        <!-- Bagian 2: Form & Event Handling -->
+        <section class="panel">
+            <div class="panel-header">
+                <h2>02. Interactive Input Form</h2>
+            </div>
+            
+            <form id="registrationForm" class="custom-form">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="fullName">Nama Lengkap</label>
+                        <input type="text" id="fullName" placeholder="cth: Harits Adha">
+                        <small id="nameError" class="error-msg hidden">Minimal 3 karakter, bro.</small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" placeholder="nama@domain.com">
+                        <small id="emailError" class="error-msg hidden">Format email tidak valid.</small>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-secondary">Proses Data Form</button>
+            </form>
+
+            <div id="formFeedback" class="hidden success-card"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
